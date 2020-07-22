@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Member(props) {
-    const {details, key} = props
+    const {details, id, handleEdit} = props
     
 
     if (!details){
@@ -9,7 +9,7 @@ export default function Member(props) {
     }
 
     return (
-        <div className="member-container">
+        <div className="member-container" onClick={() => handleEdit(id) }>
             <h3> {details.name}</h3>
             <h3>Email: {details.email}</h3>
             <h3>Role:  {details.role}</h3>

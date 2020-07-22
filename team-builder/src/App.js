@@ -68,6 +68,14 @@ function App() {
       })
   }
 
+  const handleEdit = (id) => {
+    teamMembers.forEach( item => {
+      if (item.id === id){
+        setFormValues(item)
+      }
+    })
+  }
+
   useEffect( () => {
     fakeAxiosGet("fleetfoxesapi.com")
     .then ( res =>  setTeamMembers(res.data))
@@ -80,7 +88,7 @@ function App() {
       
       {teamMembers.map( member => {
         return (
-          <Member key={member.id} details ={member}></Member>
+          <Member key={member.id} details ={member} handleEdit={handleEdit} id={member.id}></Member>
         )
       })}
 
